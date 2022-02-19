@@ -1,0 +1,50 @@
+<mat-grid-list cols="1" *ngIf="!heroe; else divHeroe">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divHeroe>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+        <div fxFlex="50">
+            <h1>{{heroe.superhero}}</h1>
+            <mat-divider></mat-divider>
+            <br>
+            <img [src]="heroe | heroeImagen">
+        </div>
+        <div fxFlex="50" fxLayout="column">
+            <h1>{{heroe.publisher}}</h1>
+            <mat-divider></mat-divider>
+            <br>
+            <mat-list>
+                <mat-list-item>
+                    <mat-icon mat-list-icon>fiber_smart_record</mat-icon>
+                    <div mat-line>{{heroe.first_appearance}}</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon mat-list-icon>fiber_smart_record</mat-icon>
+                    <div mat-line>{{heroe.characters}}</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon mat-list-icon>fiber_smart_record</mat-icon>
+                    <div mat-line>{{heroe.alter_ego}}</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon mat-list-icon>fiber_smart_record</mat-icon>
+                    <div mat-line>{{heroe.superhero}}</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon mat-list-icon>fiber_smart_record</mat-icon>
+                    <div mat-line>{{heroe.id}}</div>
+                </mat-list-item>
+            </mat-list>
+            <mat-divider></mat-divider>
+            <br>
+            <button mat-raised-button color="primary" (click)="regresar()">
+            <mat-icon>keyboard_return</mat-icon>    
+                Regresar
+            </button>
+
+        </div>
+    </div>
+</ng-template>

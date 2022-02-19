@@ -1,0 +1,49 @@
+<mat-sidenav-container fullscreen>
+
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="basic">
+            <span>MENÚ</span>&nbsp;
+            <span class="spacer"></span>
+            <button mat-fab color="basic" (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+              </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>people</mat-icon>
+                <span>Listado de héroes</span>
+            </a>
+            <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>person_add</mat-icon>
+                <span>Agregar héroe</span>
+            </a>
+            <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon>search</mat-icon>
+                <span>Buscar héroe</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-fab color="basic" (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <span class="spacer"></span>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="70px">
+            <div fxFlex="20">
+                <button mat-icon-button disabled color="accent">
+                    <mat-icon>person</mat-icon> {{auth.usuario}}
+                </button>
+            </div>
+            <div fxFlex="20">
+                <button mat-raised-button color="basic" (click)="logout()">
+                    Cerrar sesión  
+                    <mat-icon>exit_to_app</mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-toolbar>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
